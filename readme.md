@@ -3,13 +3,13 @@
 ## Description
 This is a Python Console Application that will generate a list of loyal customers as a txt file from a set of log files containing the pages
 viewed by customers on a website. The log file contains the following 3 fields:
-1: pageId
-2: timestamp
-3: customerId
+* pageId
+* timestamp
+* customerId
 
 a customer is viewed as loyal if they meet the following 2 criteria:
-1: they visited the site each day across two days
-2: they visited at least two unique pages
+* they visited the site each day across two days
+* they visited at least two unique pages
 
 ## How To Install (Dependencies)
 1: Install Python 3.12.3 from: https://www.python.org/downloads/
@@ -26,12 +26,12 @@ a customer is viewed as loyal if they meet the following 2 criteria:
 
 ## How to Test Different Log Files
 Under line 38 in generateLog.py the file may be edited to alter the log files being tested
-1: The setupLog(name,path) function can create a new log file (returns a logger object)
-2: The addRecord(logger,customerId,pageId,timestamp) function can add lines to the log file
+* The setupLog(name,path) function can create a new log file (returns a logger object)
+* The addRecord(logger,customerId,pageId,timestamp) function can add lines to the log file
 
-After making any changes execute this command to push them to the log files: python generateLog.py
+Execute this command to push any changes made to the log files: python generateLog.py
 
-If you edit the directory you are storing the log files in, be sure the logdirectory variable on line 21 of main.py to match in order to ensure the files are read by the program.
+If you edit the directory you are storing the log files in, be sure the logdirectory variable on line 21 of main.py is edited to match in order to ensure the files are read by the program.
 
 
 
