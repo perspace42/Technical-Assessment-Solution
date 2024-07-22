@@ -2,13 +2,14 @@
 
 ## Description
 This is a Python Console Application that will generate a list of loyal customers as a txt file from a set of log files containing the pages
-viewed by customers on a website. The log file contains:
-    - pageId
-    - timestamp
-    - customerId
-a customer is viewed as loyal if they meet the following criteria:
-    - they visited the site each day across two days
-    - they visited at least two unique pages
+viewed by customers on a website. The log file contains the following 3 fields:
+1: pageId
+2: timestamp
+3: customerId
+
+a customer is viewed as loyal if they meet the following 2 criteria:
+1: they visited the site each day across two days
+2: they visited at least two unique pages
 
 ## How To Install (Dependencies)
 1: Install Python 3.12.3 from: https://www.python.org/downloads/
