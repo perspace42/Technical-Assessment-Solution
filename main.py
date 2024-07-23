@@ -34,6 +34,23 @@ def getValue(name, string, end = ","):
     value = line[startPos : endPos].strip()
     return value
 
+#Test if the currently selected PageVisit indicates that the customer is loyal
+def testValues(visitList,outerIndex):
+    #get the first PageVisit
+    currentVisit = visitList[outerIndex]
+    #test it against all subsequent PageVisits
+    for innerIndex in range(outerIndex + 1,length):
+        nextVisit = visitList[innerIndex]
+        #Check if the PageVisits were on consecutive days
+        daysPassed = (nextVisit.timestamp - currentVisit.timestamp).days
+        if (daysPassed == 1):
+            #Check if the PageVisits were to different pages
+            if nextVisit.pageId != currentVisit.pageId:
+                return True
+    
+    return False
+                
+
 #main loop
 if __name__ == "__main__":
     for fileName in os.listdir(logDirectory):
@@ -76,21 +93,12 @@ if __name__ == "__main__":
         #iterate across list to determine which customers are loyal
         for outerIndex in range(length - 1):
             #get the first PageVisit
-            currentVisit = visitList[outerIndex]
-            #test it against all subsequent PageVisits
-            for innerIndex in range(outerIndex + 1,length):
-                nextVisit = visitList[innerIndex]
-                #Check if the PageVisits were on consecutive days
-                daysPassed = (nextVisit.timestamp - currentVisit.timestamp).days
-                if (daysPassed == 1):
-                    #Check if the PageVisits were to different pages
-                    if nextVisit.pageId != currentVisit.pageId:
-                        #Add customer to list of loyal customers
-                        loyalCustomers.append(key)
-                        #move on to the next Customer PageVisits
-                        break
-    
-    
+            if testValues(visitList,outerIndex):
+                #Add customer to list of loyal customers
+                loyalCustomers.append(key)
+                #move on to the next Customer PageVisits
+                break
+ 
     #Generate the file that stores the list of loyal customers
     try:
         file = open("LoyalCustomers.txt",'w')
