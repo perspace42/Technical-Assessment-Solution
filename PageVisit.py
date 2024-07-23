@@ -18,14 +18,5 @@ class PageVisit:
     def __str__(self):
         return f"customerId: {self.customerId}, pageId: {self.pageId}, timestamp: {self.timestamp.strftime('%Y-%m-%d %H:%M:%S')}"
     
-    #less than based on timestamp
-    def __lt__(self, other):
-        """Less than comparison based on timestamp."""
-        return self.timestamp < other.timestamp
-
-    #equality based on timestamp
-    def __eq__(self, other):
-        return self.timestamp == other.timestamp
-
 if __name__ == "__main__":
     print("please run the main.py file instead")

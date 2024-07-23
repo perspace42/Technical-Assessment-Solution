@@ -43,7 +43,7 @@ def testValues(visitList,outerIndex):
         nextVisit = visitList[innerIndex]
         #Check if the PageVisits were on consecutive days
         daysPassed = (nextVisit.timestamp - currentVisit.timestamp).days
-        if (daysPassed == 1):
+        if (daysPassed == 1 or daysPassed == -1):
             #Check if the PageVisits were to different pages
             if nextVisit.pageId != currentVisit.pageId:
                 return True
@@ -86,8 +86,6 @@ if __name__ == "__main__":
     loyalCustomers = []
     #Get the list of PageVisits from each specific customer
     for key, visitList in visitDict.items():
-        #sort PageVists by timestamp in ascending order
-        visitList.sort()
         #print(key)
         length = len(visitList)
         #iterate across list to determine which customers are loyal
