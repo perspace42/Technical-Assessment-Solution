@@ -68,5 +68,3 @@ if __name__ == "__main__":
     addRecord(firstLog,customerId = "117",pageId = "004", timestamp = today)
     addRecord(firstLog,customerId = "117",pageId = "005", timestamp = today)
     addRecord(firstLog,customerId = "117",pageId = "004", timestamp = yesterday)
-
-

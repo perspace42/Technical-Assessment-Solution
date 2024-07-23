@@ -108,19 +108,3 @@ if __name__ == "__main__":
     
     except Exception as e:
         print(f"The error {e} occurred while attempting to generate the list of loyal customers")
-
-
-            
-    
-    
-    
-    
-
-        
-            
-
-
-                    
-
-
-
