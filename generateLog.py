@@ -64,4 +64,9 @@ if __name__ == "__main__":
     addRecord(thirdLog, customerId = "000", pageId = "6", timestamp = today)
     addRecord(secondLog,customerId = "000", pageId = "6", timestamp = yesterday)
 
+    #Accessed two of the same page across two consecutive days with a non related record in between
+    addRecord(firstLog,customerId = "117",pageId = "004", timestamp = today)
+    addRecord(firstLog,customerId = "117",pageId = "005", timestamp = today)
+    addRecord(firstLog,customerId = "117",pageId = "004", timestamp = yesterday)
+
 

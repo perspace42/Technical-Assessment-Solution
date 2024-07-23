@@ -67,25 +67,28 @@ if __name__ == "__main__":
     
     #Iterate across values to generate list of loyal customers
     loyalCustomers = []
+    #Get the list of PageVisits from each specific customer
     for key, visitList in visitDict.items():
         #sort PageVists by timestamp in ascending order
         visitList.sort()
         #print(key)
         length = len(visitList)
         #iterate across list to determine which customers are loyal
-        for index in range(length - 1):
-            currentVisit = visitList[index]
-            nextVisit = visitList[index + 1]
-
-            #Check if the PageVisits were on consecutive days
-            daysPassed = (nextVisit.timestamp - currentVisit.timestamp).days
-            if (daysPassed == 1):
-                #Check if the PageVisits were to different pages
-                if nextVisit.pageId != currentVisit.pageId:
-                    #Add customer to list of loyal customers
-                    loyalCustomers.append(key)
-                    #move on to the next Customer PageVisits
-                    break
+        for outerIndex in range(length - 1):
+            #get the first PageVisit
+            currentVisit = visitList[outerIndex]
+            #test it against all subsequent PageVisits
+            for innerIndex in range(outerIndex + 1,length):
+                nextVisit = visitList[innerIndex]
+                #Check if the PageVisits were on consecutive days
+                daysPassed = (nextVisit.timestamp - currentVisit.timestamp).days
+                if (daysPassed == 1):
+                    #Check if the PageVisits were to different pages
+                    if nextVisit.pageId != currentVisit.pageId:
+                        #Add customer to list of loyal customers
+                        loyalCustomers.append(key)
+                        #move on to the next Customer PageVisits
+                        break
     
     
     #Generate the file that stores the list of loyal customers
