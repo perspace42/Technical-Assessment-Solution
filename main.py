@@ -16,7 +16,6 @@ a customer is viewed as loyal if they meet the following criteria:
 import os
 from datetime import datetime
 from PageVisit import PageVisit
-#import generateLog #Uncomment to create the files for testing the application
 
 #set directory to find relevant log files
 logDirectory = "logs/"
